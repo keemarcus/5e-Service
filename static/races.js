@@ -16,7 +16,7 @@ async function getInfo(){
         let index = x["index"]
         li.onclick = function(){
             localStorage.setItem("selectedRace",index)
-            window.location.href = "file:///E:/Projects/DDInfoService/static/race.html"
+            window.location.href = "E:/Projects/DDInfoService/5e-Service/static/race.html"
         }
     })
 }

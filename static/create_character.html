@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>New Character</title>
+    </head>
+    <body>
+        <h1>New Character</h1>
+
+        <form id="new character" method="POST" action="">
+            <div id="name">
+                <h3>Name</h3>
+                <input type="text" id="name input" form="new character" name="name" required>
+            </div>
+
+            <div id="race">
+                <h2>Race</h2>
+                <select id="select race" form="new character" name="race" required>
+                    <option selected disabled>Choose One</option>
+                </select>
+            </div>
+            
+
+            <div id="race info" hidden>
+                <h3>Age</h3>
+                <p id="age"></p>
+
+                <h3 style="display: inline;">Size</h3>
+                <p id="size" style="display: inline;"></p>
+                <p id="size desc"></p>
+                
+                <h3>Speed</h3>
+                <p id="speed"></p>
+
+                <h3>Languages</h3>
+                <ul id="languages"></ul>
+                <p id="language desc"></p>
+
+                <h3>Ability Score Bonuses</h3>
+                <ul id="ability bonus"></ul>
+
+                <h3>Typical Alignment</h3>
+                <p id="race alignment desc"></p>
+            </div>
+
+            <div id="alignment">
+                <h2>Alignment</h3>
+                <select id="select alignment" form="new character" name="alignment" required>
+                    <option selected disabled>Choose One</option>
+                </select>
+                <p id="alignment desc"></p>
+            </div>
+
+            <div id="class">
+                <h3>Class</h3>
+                <select id="select class" form="new character" name="class" required>
+                    <option selected disabled>Choose One</option>
+                </select>
+            </div>
+            
+            <div id="class info" hidden>
+                <h3 style="display: inline;">Hit Die</h3>
+                <p id="hit die" style="display: inline;"></p>
+
+                <h3>Weapon/Armor Proficiencies</h3>
+                <ul id="weapon proficiencies"></ul>
+
+                <div id="skill profs info">
+                    <h3>Skill Proficiencies</h3>
+                    <p id="skill proficiency number">Choose </p>
+                    <ul id="skill proficiencies"></ul>
+                </div>
+                
+
+                <div id="tool profs info">
+                    <h3>Tool Proficiencies</h3>
+                    <p id="tool proficiency number">Choose </p>
+                    <ul id="tool proficiencies"></ul>
+                </div>
+                
+
+                <div id="inst profs info">
+                    <h3>Instrument Proficiencies</h3>
+                    <p id="inst proficiency number">Choose </p>
+                    <ul id="inst proficiencies"></ul> 
+                </div>
+                
+
+                <h3>Saving Throw Proficiencies</h3>
+                <ul id="save proficiencies"></ul>
+            </div>
+        </form>
+        
+    </body>
+
+    <script src="create_character.js"></script>
+</html>

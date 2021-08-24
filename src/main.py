@@ -62,6 +62,21 @@ def get_feature(feature_name):
     return requests.get(url).content
 
 
+# get alignments
+@app.route('/alignments', methods=['GET'])
+def get_alignments():
+    info = ast.literal_eval(requests.get('https://www.dnd5eapi.co/api/alignments').content.decode('utf8'))
+    return json.dumps(info["results"])
+
+
+# get alignment
+@app.route('/alignments/<alignment_name>', methods=['GET'])
+def get_alignment(alignment_name):
+    url = 'https://www.dnd5eapi.co/api/alignments/' + alignment_name
+    info = ast.literal_eval(requests.get(url).content.decode('utf8'))
+    return json.dumps(info)
+
+
 # set up some basic error handlers
 @app.errorhandler(404)
 def handle_404(e):
