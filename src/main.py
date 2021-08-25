@@ -77,6 +77,14 @@ def get_alignment(alignment_name):
     return json.dumps(info)
 
 
+# get proficiency
+@app.route('/proficiencies/<proficiency_name>', methods=['GET'])
+def get_proficiency(proficiency_name):
+    url = 'https://www.dnd5eapi.co/api/proficiencies/' + proficiency_name
+    info = ast.literal_eval(requests.get(url).content.decode('utf8'))
+    return json.dumps(info)
+
+
 # set up some basic error handlers
 @app.errorhandler(404)
 def handle_404(e):
