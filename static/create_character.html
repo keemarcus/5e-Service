@@ -17,6 +17,11 @@
                 <select id="select race" form="new character" name="race" required>
                     <option selected disabled>Choose One</option>
                 </select>
+                <h3 id="subrace head" hidden>Subrace</h3>
+                <select id="select subrace" form="new character" name="subrace" required hidden>
+                    <option selected disabled>Choose One</option>
+                </select>
+                <p id="subrace desc"></p>
             </div>
             
 
@@ -32,13 +37,20 @@
                 <p id="speed"></p>
 
                 <h3>Languages</h3>
-                <ul id="languages"></ul>
                 <p id="language desc"></p>
+                <ul id="languages"></ul>
+                <ul id="subrace languages"></ul>
+                <p id="language number" hidden></p>
+                <div id="language options" hidden></div>
+                <p id="subrace language number" hidden></p>
+                <div id="subrace language options" hidden></div>
 
                 <h3>Ability Score Bonuses</h3>
                 <ul id="ability bonus"></ul>
+                <ul id="subrace ability bonus"></ul>
 
                 <div id="race traits"></div>
+                <div id="subrace traits"></div>
 
                 <h3>Typical Alignment</h3>
                 <p id="race alignment desc"></p>
@@ -65,34 +77,41 @@
             </div>
             <div id="weapon profs info">
                 <h3>Weapon/Armor Proficiencies</h3>
-                <ul id="race weapon proficiencies"></ul> 
+                <ul id="race weapon proficiencies"></ul>
+                <ul id="subrace weapon proficiencies"></ul>  
                 <ul id="class weapon proficiencies"></ul> 
             </div>
             
 
             <div id="skill profs info" hidden>
                 <h3>Skill Proficiencies</h3>
-                <p id="race skill proficiency number" hidden>Choose </p>
+                <p id="race skill proficiency number" hidden></p>
                 <div id="race skill profs" hidden></div>
-                <p id="class skill proficiency number" hidden>Choose </p>
+                <p id="subrace skill proficiency number" hidden></p>
+                <div id="subrace skill profs" hidden></div>
+                <p id="class skill proficiency number" hidden></p>
                 <div id="class skill profs" hidden></div>
             </div>
             
 
             <div id="tool profs info" hidden>
                 <h3>Tool Proficiencies</h3>
-                <p id="race tool proficiency number" hidden>Choose </p>
+                <p id="race tool proficiency number" hidden></p>
                 <div id="race tool profs" hidden></div>
-                <p id="class tool proficiency number" hidden>Choose </p>
+                <p id="subrace tool proficiency number" hidden></p>
+                <div id="subrace tool profs" hidden></div>
+                <p id="class tool proficiency number" hidden></p>
                 <div id="class tool profs" hidden></div>
             </div>
             
 
             <div id="inst profs info" hidden>
                 <h3>Instrument Proficiencies</h3>
-                <p id="race inst proficiency number" hidden>Choose </p>
+                <p id="race inst proficiency number" hidden></p>
                 <div id="race inst profs" hidden></div>
-                <p id="class inst proficiency number" hidden>Choose </p>
+                <p id="subrace inst proficiency number" hidden></p>
+                <div id="subrace inst profs" hidden></div>
+                <p id="class inst proficiency number" hidden></p>
                 <div id="class inst profs" hidden></div>
             </div>
             
