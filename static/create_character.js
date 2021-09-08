@@ -243,7 +243,7 @@ function parseRaceInfo(info, type) {
     while (language_options.firstChild) {language_options.removeChild(language_options.firstChild)}
     if (typeof info["language_options"] !== 'undefined'){
        language_number.innerText = "Choose " + info["language_options"]["choose"] + " (from " + type + ")"
-       let name = type + "~" + info["language_options"]["choose"]
+       let name = "language~" + info["language_options"]["choose"]
        info["language_options"]["from"].forEach(x => addProfOption(x["name"], x["index"], language_options, name))
     }
     if(language_options.childElementCount > 0){language_number.hidden = false; language_options.hidden = false}

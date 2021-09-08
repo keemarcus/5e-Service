@@ -1,13 +1,18 @@
 # import flask
 import ast
+import re
 from flask_cors import CORS
 
-from flask import Flask, request, redirect, url_for, session, make_response, flash, render_template, jsonify, json
+from flask import Flask, request, redirect, url_for, session, make_response, flash, render_template, jsonify, json, \
+    send_from_directory
 # from flask_session import Session
 import requests
 
+# import our get connection function
+from utils import dbconfig
+
 # set up flask app
-app = Flask(__name__, static_url_path='')
+app = Flask(__name__, static_url_path='/static', template_folder='templates', static_folder='static')
 CORS(app)
 
 
@@ -98,6 +103,52 @@ def get_subrace(subrace_name):
     url = 'https://www.dnd5eapi.co/api/subraces/' + subrace_name
     info = ast.literal_eval(requests.get(url).content.decode('utf8'))
     return json.dumps(info)
+
+
+@app.route('/newcharacter', methods=['GET'])
+def create_character_page():
+    return render_template('create_character.html')
+
+
+@app.route('/newcharacter', methods=['POST'])
+def create_character():
+    print(request.form)
+    charName = request.form['name']
+    charRace = request.form['race']
+    if 'subrace' in request.form:
+        charSubrace = request.form['subrace']
+    else:
+        charSubrace = None
+    extraLangs = None
+    charAlignment = request.form['alignment']
+    charClass = request.form['class']
+    skillProfs = None
+    toolProfs = None
+    instProfs = None
+    for key in request.form:
+        if re.search('language*', key):
+            extraLangs = str(request.form.getlist(key))
+        elif re.search('skill prof*', key):
+            skillProfs = str(request.form.getlist(key))
+        elif re.search('tool prof*', key):
+            toolProfs = str(request.form.getlist(key))
+        elif re.search('inst prof*', key):
+            instProfs = str(request.form.getlist(key))
+    try:
+        # set up a new database connection and cursor
+        connection = dbconfig.get_connection()
+        cursor = connection.cursor()
+        # create query string using parameterization to protect against SQL injection
+        query = "INSERT INTO ddCharacters VALUES (default, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        # execute our query and commit the changes to the database
+        cursor.execute(query, charName, charRace, charSubrace, extraLangs, charAlignment, charClass, skillProfs, toolProfs, instProfs)
+        cursor.commit()
+    finally:
+        # close our database connection
+        connection.close()
+
+    return render_template('create_character.html')
+    return redirect('http://localhost:5000/newcharacter')
 
 
 # set up some basic error handlers
